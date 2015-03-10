@@ -9,7 +9,7 @@
       <th>body</th>
       <th>author</th>
       <th>comments</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -25,6 +25,8 @@
             <%= comm.user.email %><br/>
           <% end %>
         </td>
+        <td><%= link_to "comment", new_post_comment_path(post_id: post.id) %></td>
+        <td><%= link_to "like(#{post.likes.count})", likes_path(like: { likable_id: post.id, likable_type: post.class }), method: "post" %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

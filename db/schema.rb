@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20150309224259) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "likable_id"
-    t.integer  "author_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "likable_type"
+    t.integer  "user_id"
   end
 
   create_table "posts", force: :cascade do |t|

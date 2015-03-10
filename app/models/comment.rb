@@ -4,5 +4,6 @@ class Comment < ActiveRecord::Base
   has_many :likes, as: :likable
 
   validates_presence_of :user
+  validates_presence_of :post
 
 end

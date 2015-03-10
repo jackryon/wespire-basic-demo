@@ -24,7 +24,10 @@ class LikesController < ApplicationController
   # POST /likes
   # POST /likes.json
   def create
+
+    
     @like = Like.new(like_params)
+    @like.user = current_user
 
     respond_to do |format|
       if @like.save
@@ -69,6 +72,6 @@ class LikesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def like_params
-      params[:like]
+      params.require(:like).permit(:likable_id, :likable_type)
     end
 end
